@@ -1,0 +1,227 @@
+/*-------------------------------------------------*/
+/*------------------ Reset style ---------------- */
+/*-----------------------------------------------*/
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+:root {
+	--primary-color: #3498db;
+	--secondary-color: #2d5062;
+	--light-color: #eeeeee;
+	--dark-color: #222222;
+	--grey-color: #777777;
+	--transition-speed: 0.3s;
+}
+
+html {
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+	overflow-x: hidden;
+}
+
+body {
+	font-size: 1.6rem;
+	line-height: 1.6;
+	background-color: var(--grey-color);
+	color: var(--dark-color);
+	overflow-x: hidden;
+	font-family: 'Raleway', sans-serif;
+	font-size: 1.6rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	line-height: 1.5;
+	color: var(--dark-color);
+}
+
+h1 {
+	font-size: 2.8rem;
+}
+
+h2 {
+	font-size: 2.4rem;
+}
+
+h3 {
+	font-size: 1.8rem;
+}
+
+h4,
+h5,
+h6,
+a,
+p,
+li {
+	font-size: 1.6rem;
+	color: var(--dark-color);
+}
+
+a {
+	text-decoration: none;
+	color: var(--primary-color);
+	cursor: pointer;
+}
+
+ul,
+li {
+	list-style: none;
+}
+
+/*-------------------------------------------------*/
+/*------------------ Class ---------------------- */
+/*-----------------------------------------------*/
+.container {
+	margin: 0 auto;
+	padding: 0 1.25em;
+	width: 100%;
+	max-width: 1200px;
+}
+
+/*-------------------------------------------------*/
+/*------------------ Logo ----------------------- */
+/*-----------------------------------------------*/
+.logo {
+	display: inline-flex;
+	align-items: center;
+	padding: 0.5em 1em 0.5em 0;
+	z-index: 20;
+}
+
+.logo .logo__img {
+	width: 30px;
+	height: auto;
+	margin-right: 1rem;
+}
+
+.logo .logo-text {
+	font-size: 2rem;
+	color: var(--dark-color);
+}
+
+/*-------------------------------------------------*/
+/*------------------ Nav ------------------------ */
+/*-----------------------------------------------*/
+.main-nav {
+	background-color: var(--light-color);
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+}
+
+.main-nav .container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 4em;
+}
+
+.hamburger,
+.close-btn {
+	background: none;
+	border: none;
+	color: var(--dark-color);
+	cursor: pointer;
+	z-index: 1000;
+}
+
+.hamburger {
+	display: block;
+	font-size: 4rem;
+	margin-top: -5px;
+}
+
+.close-btn {
+	display: none;
+	font-size: 5rem;
+	margin-top: -10px;
+}
+
+.main-nav.open-menu .close-btn {
+	display: block;
+}
+
+.main-nav.open-menu .hamburger {
+	display: none;
+}
+
+.main-nav__list {
+	position: fixed;
+	top: 0;
+	right: -100%;
+	z-index: 10;
+	display: flex;
+	width: 60%;
+	height: 100vh;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 2em;
+	transition: right var(--transition-speed) ease;
+	background-color: var(--light-color);
+}
+
+.main-nav__list-visible {
+	right: 0;
+}
+
+.main-nav__item {
+	display: block;
+	font-size: 2rem;
+	padding: 0.5em 1em;
+	color: var(--dark-color);
+	transition: background-color 0.2s, color 0.2s;
+}
+
+.main-nav__item:hover,
+.main-nav__item.active {
+	background-color: var(--dark-color);
+	color: var(--light-color);
+}
+
+/*-------------------------------------------------*/
+/*------------------ Other ---------------------- */
+/*-----------------------------------------------*/
+.page-item {
+	margin-bottom: 2em;
+	height: 800px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--secondary-color);
+}
+
+/*-------------------------------------------------*/
+/*---------------Nav media queries -------------- */
+/*-----------------------------------------------*/
+@media (min-width: 768px) {
+	.main-nav__list {
+		position: relative;
+		right: 0;
+		height: 4em;
+		flex-direction: row;
+		justify-content: right;
+	}
+	.hamburger {
+		display: none;
+	}
+	.main-nav__list__item {
+		height: 100%;
+	}
+	.main-nav__item {
+		display: flex;
+		align-items: center;
+		height: 100%;
+	}
+}
