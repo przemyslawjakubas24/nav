@@ -182,6 +182,7 @@ li {
 	padding: 0.5em 1em;
 	color: var(--dark-color);
 	transition: background-color 0.2s, color 0.2s;
+	text-align: center;
 }
 
 .main-nav__item:hover,
